@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="container-fluid productlist">
+    <div class="row">
+        <div class="col-sm-8">
+            <a href="{% url 'product_detail' products.0.id %}">
+                {% if products.0.images.first %}
+                <img src="{{ products.0.images.first.image.url }}" class="img-responsive" alt="item">
+                {% endif %}
+                <span class="productlist-price-container">
+                    <span class="product-price">
+                        <span class="price">{{ products.0.price }}</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="{% url 'product_detail' products.1.id %}">
+                {% if products.1.images.first %}
+                <img src="{{ products.1.images.first.image.url }}" class="img-responsive" alt="item">
+                {% endif %}
+                <span class="productlist-price-container">
+                    <span class="product-price">
+                        <span class="price">{{ products.1.price }}</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="{% url 'product_detail' products.2.id %}">
+                {% if products.2.images.first %}
+                <img src="{{ products.2.images.first.image.url }}" class="img-responsive" alt="item">
+                {% endif %}
+                <span class="productlist-price-container">
+                    <span class="product-price">
+                        <span class="price">{{ products.2.price }}</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="col-sm-12">
+                <a href="{% url 'product_detail' products.3.id %}">
+                    {% if products.3.images.first %}
+                    <img src="{{ products.3.images.first.image.url }}" class="img-responsive" alt="item">
+                    {% endif %}
+                    <span class="productlist-price-container">
+                        <span class="product-price">
+                            <span class="price">{{ products.3.price }}</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-sm-12">
+                <a href="{% url 'product_detail' products.4.id %}">
+                    {% if products.4.images.first %}
+                    <img src="{{ products.4.images.first.image.url }}" class="img-responsive" alt="item">
+                    {% endif %}
+                    <div class="productlist-label">
+                        <span class="sale-label">Sale</span>
+                    </div>
+                    <span class="productlist-price-container">
+                        <span class="product-price">
+                            <span class="price">{{ products.4.price }}</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <a href="{% url 'product_detail' products.5.id %}">
+                {% if products.5.images.first %}
+                <img src="{{ products.5.images.first.image.url }}" class="img-responsive" alt="item">
+                {% endif %}
+                <div class="productlist-label">
+                    <span class="sold-out-label">Sold Out</span>
+                </div>
+                <span class="productlist-price-container">
+                    <span class="product-price">
+                        <span class="price">{{ products.5.price }}</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline">Смотреть больше</a>
+        {% endif %}
+    </div>
+</div>
